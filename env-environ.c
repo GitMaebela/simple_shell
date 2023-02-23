@@ -97,8 +97,9 @@ void promptc()
 */
 void printenv(int argc, char *argv[], char *envp[])
 {
-    // Loop through each element in the environment array
-    for (int i = 0; envp[i] != NULL; i++) 
+    int i;
+
+    for (i = 0; envp[i] != NULL; i++) 
     {
         // Print the environment variable
         printf("%s\n", envp[i]);
