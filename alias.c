@@ -69,7 +69,9 @@ int find_alias_index(char* name)
 */
 void print_alias_names(int argc, char** argv) 
 {
-    for (int i = 1; i < argc; i++) 
+    int i;
+    
+    for (i = 1; i < argc; i++) 
     {
         int index = find_alias_index(argv[i]);
 
