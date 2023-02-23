@@ -12,15 +12,14 @@ void promptc()
     while (1) 
     {
         printf("simple_shell$ ");
-        fflush(stdout); // flush the output stream to ensure prompt is displayed
+        fflush(stdout);
 
         if (fgets(cmd, MAX_CMD_LENGTH, stdin) == NULL) 
         {
             printf("\n");
-            break; // exit loop on EOF (Ctrl+D)
+            break;
         }
 
-        // remove trailing newline from command string
         size_t cmd_len = strlen(cmd);
         if (cmd[cmd_len - 1] == '\n')
         {
@@ -40,7 +39,6 @@ void promptc()
             } 
             else if (pid == 0) 
             {
-                // child process
                 if (execlp(token, token, NULL) == -1) 
                 {
                     perror("execlp");
@@ -49,7 +47,6 @@ void promptc()
             } 
             else 
             {
-                // parent process
                 int child_status;
                 if (waitpid(pid, &child_status, 0) == -1) 
                 {
@@ -62,7 +59,6 @@ void promptc()
                     int child_exit_status = WEXITSTATUS(child_status);
                     if (token[strlen(token) - 1] == '&') 
                     {
-                        // handle &&
                         if (child_exit_status != 0) 
                         {
                             status = child_exit_status;
@@ -71,7 +67,6 @@ void promptc()
                     } 
                     else 
                     {
-                        // handle ||
                         if (child_exit_status == 0) 
                         {
                             status = child_exit_status;
@@ -101,7 +96,6 @@ void printenv(int argc, char *argv[], char *envp[])
 
     for (i = 0; envp[i] != NULL; i++) 
     {
-        // Print the environment variable
         printf("%s\n", envp[i]);
     }
 }
@@ -158,11 +152,6 @@ char *my_getline(void)
     return line;
 }
 
-
-// #include <stdio.h>
-// #include <stdlib.h>
-// #include <unistd.h>
-// #include <string.h>
 
 #define MAX_PATH_LENGTH 1024
 
