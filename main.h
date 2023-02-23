@@ -22,6 +22,27 @@
 #define MAX_CMD_LENGTH 100
 #define BUFFER_SIZE 256
 
+/**
+ * struct data - struct that contains all relevant data on runtime
+ * @av: argument vector
+ * @input: command line written by the user
+ * @args: tokens of the command line
+ * @status: last status of the shell
+ * @counter: lines counter
+ * @_environ: environment variable
+ * @pid: process ID of the shell
+ */
+typedef struct data
+{
+	char **av;
+	char *input;
+	char **args;
+	int status;
+	int counter;
+	char **_environ;
+	char *pid;
+} data_shell;
+
 void free_data(data_shell *datash)
 void set_data(data_shell *datash, char **av)
 int is_cdir(char *path, int *i)

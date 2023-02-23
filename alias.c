@@ -146,7 +146,3 @@ void process_args(int argc, char** argv)
     }
 }
 
-// int main(int argc, char** argv) {
-//   process_args(argc, argv);
-//   return 0;
-// }
