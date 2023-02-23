@@ -4,7 +4,7 @@
 * free_data - frees data structure
 *
 * @datash: data structure
-* Return: none
+* Return: no return
 */
 void free_data(data_shell *datash)
 {
@@ -24,7 +24,7 @@ void free_data(data_shell *datash)
 *
 * @datash: data structure
 * @av: argument vector
-* Return: none
+* Return: no return
 */
 void set_data(data_shell *datash, char **av)
 {
@@ -53,15 +53,21 @@ void set_data(data_shell *datash, char **av)
 /**
 * main - Entry point
 *
-* @argc: argument count
-* @argv: argument vector
+* @ac: argument count
+* @av: argument vector
 *
 * Return: 0 on success.
 */
-
-
-int main(int argc, char** argv) 
+int main(int ac, char **av)
 {
-    process_args(argc, argv);
-    return 0;
+	data_shell datash;
+	(void) ac;
+
+	signal(SIGINT, get_sigint);
+	set_data(&datash, av);
+	shell_loop(&datash);
+	free_data(&datash);
+	if (datash.status < 0)
+		return (255);
+	return (datash.status);
 }
