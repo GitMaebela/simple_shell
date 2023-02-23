@@ -1,8 +1,10 @@
+#include "main.h"
+
 /**
- * exit_shell - Exits the shell
- * @datash: Pointer to struct of shell data
- * Return: 0 on success, 1 on failure
- */
+* exit_shell - Exits the shell
+* @datash: Pointer to struct of shell data
+* Return: 0 on success, 1 on failure
+*/
 int exit_shell(data_shell *datash)
 {
 	unsigned int status = 0;
@@ -22,11 +24,11 @@ int exit_shell(data_shell *datash)
 }
 
 /**
- * is_valid_number - Checks if the string is a valid number
- * @str: Pointer to string to check
- * @status: Pointer to store the converted number
- * Return: 1 if string is a valid number, 0 otherwise
- */
+* is_valid_number - Checks if the string is a valid number
+* @str: Pointer to string to check
+* @status: Pointer to store the converted number
+* Return: 1 if string is a valid number, 0 otherwise
+*/
 int is_valid_number(char *str, unsigned int *status)
 {
 	unsigned int num = 0;

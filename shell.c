@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * is_cdir - checks if ":" is in the current directory.
- * @path: pointer to a string that contains directories separated by colons.
- * @i: pointer to an index.
- * Return: 1 if the path is searchable in the current directory, 0 otherwise.
- */
+* is_cdir - checks if ":" is in the current directory.
+* @path: pointer to a string that contains directories separated by colons.
+* @i: pointer to an index.
+* Return: 1 if the path is searchable in the current directory, 0 otherwise.
+*/
 int is_cdir(char *path, int *i)
 {
 	if (path[*i] == ':')
@@ -23,11 +23,11 @@ int is_cdir(char *path, int *i)
 }
 
 /**
- * _which - locates a command.
- * @cmd: command name.
- * @_environ: environment variable.
- * Return: location of the command.
- */
+* _which - locates a command.
+* @cmd: command name.
+* @_environ: environment variable.
+* Return: location of the command.
+*/
 char *_which(char *cmd, char **_environ)
 {
 	char *path, *dir, *end_path;
@@ -75,10 +75,10 @@ char *_which(char *cmd, char **_environ)
 }
 
 /**
- * is_executable - determines if a file is an executable.
- * @datash: data structure.
- * Return: 0 if it is not an executable, other number if it is.
- */
+* is_executable - determines if a file is an executable.
+* @datash: data structure.
+* Return: 0 if it is not an executable, other number if it is.
+*/
 int is_executable(data_shell *datash)
 {
 	struct stat st;
@@ -106,12 +106,12 @@ int is_executable(data_shell *datash)
 
 
 /**
- * check_executable - checks if the command is executable
- *
- * @command: command to check
- * @datash: data relevant (args and input)
- * Return: 1 if executable, 0 if found and not executable, -1 if not found
- */
+* check_executable - checks if the command is executable
+*
+* @command: command to check
+* @datash: data relevant (args and input)
+* Return: 1 if executable, 0 if found and not executable, -1 if not found
+*/
 int check_executable(char *command, data_shell *datash)
 {
 	struct stat st;
@@ -137,11 +137,11 @@ int check_executable(char *command, data_shell *datash)
 }
 
 /**
- * execute_command - executes command lines
- *
- * @datash: data relevant (args and input)
- * Return: 1 on success, 0 on failure
- */
+* execute_command - executes command lines
+*
+* @datash: data relevant (args and input)
+* Return: 1 on success, 0 on failure
+*/
 int execute_command(data_shell *datash)
 {
 	char *command = datash->args[0];

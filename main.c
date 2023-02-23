@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * free_data - frees data structure
- *
- * @datash: data structure
- * Return: no return
- */
+* free_data - frees data structure
+*
+* @datash: data structure
+* Return: none
+*/
 void free_data(data_shell *datash)
 {
 	unsigned int i;
@@ -20,12 +20,12 @@ void free_data(data_shell *datash)
 }
 
 /**
- * set_data - Initialize data structure
- *
- * @datash: data structure
- * @av: argument vector
- * Return: no return
- */
+* set_data - Initialize data structure
+*
+* @datash: data structure
+* @av: argument vector
+* Return: none
+*/
 void set_data(data_shell *datash, char **av)
 {
 	unsigned int i;
@@ -51,23 +51,29 @@ void set_data(data_shell *datash, char **av)
 }
 
 /**
- * main - Entry point
- *
- * @ac: argument count
- * @av: argument vector
- *
- * Return: 0 on success.
- */
-int main(int ac, char **av)
-{
-	data_shell datash;
-	(void) ac;
+* main - Entry point
+*
+* @argc: argument count
+* @argv: argument vector
+*
+* Return: 0 on success.
+*/
+// int main(int ac, char **av)
+// {
+// 	data_shell datash;
+// 	(void) ac;
 
-	signal(SIGINT, get_sigint);
-	set_data(&datash, av);
-	shell_loop(&datash);
-	free_data(&datash);
-	if (datash.status < 0)
-		return (255);
-	return (datash.status);
+// 	signal(SIGINT, get_sigint);
+// 	set_data(&datash, av);
+// 	shell_loop(&datash);
+// 	free_data(&datash);
+// 	if (datash.status < 0)
+// 		return (255);
+// 	return (datash.status);
+// }
+
+int main(int argc, char** argv) 
+{
+    process_args(argc, argv);
+    return 0;
 }
